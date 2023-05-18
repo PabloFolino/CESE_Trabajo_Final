@@ -1,0 +1,6 @@
+(sym_lib_table
+  (lib (name "Converter_DCDC")(type "Legacy")(uri "${KIPRJMOD}/Converter_DCDC.lib")(options "")(descr ""))
+  (lib (name "DriverCortina_Folino-rescue")(type "Legacy")(uri "${KIPRJMOD}/DriverCortina_Folino-rescue.lib")(options "")(descr ""))
+  (lib (name "basico")(type "Legacy")(uri "${KIPRJMOD}/basico.lib")(options "")(descr ""))
+  (lib (name "Poncho_robot_RL-rescue")(type "Legacy")(uri "${KIPRJMOD}/Poncho_robot_RL-rescue.lib")(options "")(descr ""))
+)

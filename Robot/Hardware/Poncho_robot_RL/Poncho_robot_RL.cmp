@@ -1,0 +1,267 @@
+Cmp-Mod V01 Created by PcbNew   date = Tue 18 May 2021 09:00:19 -03
+
+BeginCmp
+TimeStamp = 60A3E775
+Path = /60A3E19B
+Reference = H4;
+ValeurCmp = MountingHole;
+IdModule  = MountingHole:MountingHole_2.2mm_M2_DIN965_Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A3E7A1
+Path = /60A3D143
+Reference = H3;
+ValeurCmp = MountingHole;
+IdModule  = MountingHole:MountingHole_2.2mm_M2_DIN965_Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A373FD
+Path = /60A3F30A
+Reference = H2;
+ValeurCmp = MountingHole;
+IdModule  = MountingHole:MountingHole_2.2mm_M2_DIN965_Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A373ED
+Path = /60A3EACD
+Reference = H1;
+ValeurCmp = MountingHole;
+IdModule  = MountingHole:MountingHole_2.2mm_M2_DIN965_Pad;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E1EC
+Path = /60B3B64F
+Reference = R5;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DFA8
+Path = /60BA54C2
+Reference = XU3;
+ValeurCmp = MCU 9250;
+IdModule  = CIAA:mpu_9250;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E190
+Path = /60A645A8
+Reference = R1;
+ValeurCmp = 100;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E179
+Path = /60AC01FA
+Reference = Q2;
+ValeurCmp = BC548;
+IdModule  = Package_TO_SOT_THT:TO-92L_Inline_Wide;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E168
+Path = /60A5967D
+Reference = Q1;
+ValeurCmp = BC548;
+IdModule  = Package_TO_SOT_THT:TO-92L_Inline_Wide;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A31C09
+Path = /60B3B236
+Reference = SW1;
+ValeurCmp = Reset;
+IdModule  = Button_Switch_THT:SW_Pulsador;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A230FB
+Path = /60B1A366
+Reference = XU1;
+ValeurCmp = DcDc_5v_3.3v;
+IdModule  = Converter_DCDC:Converter_DCDC_5v-3v3;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E10A
+Path = /60B6DB9D
+Reference = XU4;
+ValeurCmp = GPS NEO6;
+IdModule  = RF_GPS:GPS_NEO_6;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A21D6B
+Path = /60A5EABC
+Reference = XA1;
+ValeurCmp = Conn_Poncho2P_2x_20x2;
+IdModule  = CIAA:Conn_Poncho_SinBorde;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E27D
+Path = /60A0C567
+Reference = XU2;
+ValeurCmp = ESP-01v090;
+IdModule  = ESP8266:ESP-01;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E25F
+Path = /60AC0206
+Reference = R10;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E248
+Path = /60A5D23C
+Reference = R9;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E231
+Path = /60B44AE3
+Reference = R8;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E21A
+Path = /60B44ADD
+Reference = R7;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E203
+Path = /60B3C465
+Reference = R6;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E1D5
+Path = /60DEBF4D
+Reference = R4;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E1BE
+Path = /60DEB7AB
+Reference = R3;
+ValeurCmp = 10K;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E1A7
+Path = /60AF7EF8
+Reference = R2;
+ValeurCmp = 680;
+IdModule  = Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E157
+Path = /60C2DA39
+Reference = J10;
+ValeurCmp = Hc-SR04;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E0F2
+Path = /60AC0200
+Reference = J9;
+ValeurCmp = Lase2;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E0BF
+Path = /60A5AF5B
+Reference = J8;
+ValeurCmp = Laser1;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E08C
+Path = /60A67502
+Reference = J7;
+ValeurCmp = Power;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E059
+Path = /60A62F09
+Reference = J6;
+ValeurCmp = Power;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1E026
+Path = /60DB4A09
+Reference = J5;
+ValeurCmp = Stop;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DFF3
+Path = /60DB3052
+Reference = J4;
+ValeurCmp = Stop;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DFC0
+Path = /60B75DBE
+Reference = J3;
+ValeurCmp = Conn_01x04;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DF8A
+Path = /60AE37D8
+Reference = J1;
+ValeurCmp = Driver L298;
+IdModule  = Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Horizontal;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DF23
+Path = /60AF96AA
+Reference = D2;
+ValeurCmp = Power;
+IdModule  = LED_THT:LED_D5.0mm;
+EndCmp
+
+BeginCmp
+TimeStamp = 60A1DF11
+Path = /60A6527B
+Reference = D1;
+ValeurCmp = 3v3;
+IdModule  = Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal;
+EndCmp
+
+EndListe

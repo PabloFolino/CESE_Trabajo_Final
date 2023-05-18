@@ -1,0 +1,49 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# ESP-01v090-ESP-Preliminar-rescue
+#
+DEF ESP-01v090-ESP-Preliminar-rescue U 0 40 Y Y 1 F N
+F0 "U" 0 -100 50 H V C CNN
+F1 "ESP-01v090-ESP-Preliminar-rescue" 0 100 50 H V C CNN
+F2 "" 0 0 50 H I C CNN
+F3 "" 0 0 50 H I C CNN
+$FPLIST
+ ESP-01*
+$ENDFPLIST
+DRAW
+S -650 -350 650 350 1 0 0 N
+X UTXD 1 -950 150 300 R 50 50 1 1 O
+X GND 2 950 150 300 L 50 50 1 1 W
+X CH_PD 3 -950 50 300 R 50 50 1 1 I
+X GPIO2 4 950 50 300 L 50 50 1 1 T
+X RST 5 -950 -50 300 R 50 50 1 1 I
+X GPIO0 6 950 -50 300 L 50 50 1 1 T
+X VCC 7 -950 -150 300 R 50 50 1 1 W
+X URXD 8 950 -150 300 L 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+# G3MB-202PL-DC5-SSR-Preliminar-rescue
+#
+DEF G3MB-202PL-DC5-SSR-Preliminar-rescue K 0 30 Y Y 1 F N
+F0 "K" 1050 300 50 H V L CNN
+F1 "G3MB-202PL-DC5-SSR-Preliminar-rescue" 1050 200 50 H V L CNN
+F2 "G3MB202PLDC5" 950 50 50 H I L CNN
+F3 "https://www.mouser.com/datasheet/2/307/g3mb_0609-1189645.pdf" 1050 50 50 H I L CNN
+F4 "Solid State Relays - PCB Mount 5VDC/100-240VAC 2A" 1050 -50 50 H I L CNN "Description"
+F5 "20.5" 1050 -250 50 H I L CNN "Height"
+F6 "Omron Electronics" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "G3MB-202PL-DC5" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "653-G3MB-202PL-DC5" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.com/Search/Refine.aspx?Keyword=653-G3MB-202PL-DC5" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+DRAW
+P 5 0 1 6 200 100 1000 100 1000 -400 200 -400 200 100 N
+X LOAD_1 1 0 -250 200 R 50 50 0 0 P
+X LOAD_2 2 0 -50 200 R 50 50 0 0 P
+X INPUT_(+) 3 1200 -250 200 L 50 50 0 0 P
+X INPUT_(-) 4 1200 -50 200 L 50 50 0 0 P
+ENDDRAW
+ENDDEF
+#
+#End Library
