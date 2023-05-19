@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Robot:_RL-Sensores</title>
+</head>
+
+<body>
+    <h1 class="titulo">Robot:_RL-Sensores</h1>
+
+    <section class="caja1">
+        <header>Laser</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <th> Izquierdo </th>
+                <td><p>...</p></td>
+                <td> Derecho </td>
+            </tr>
+            <tr>
+                <td>
+                    <p> <acronym title="Laser_IZQ_ON"> <button class="button" onclick="laser_izq_on()">-ON-</button></acronym></p> 
+                    <p> <acronym title="Laser_IZQ_OFF"> <button class="button" onclick="laser_izq_off()">-OFF-</button></acronym></p>
+                    <p><button id="laser_izq" class="btn-circle"></button></p>
+                </td>
+                <td><p></p></td>
+                <td> 
+                    <p> <acronym title="Laser_DER_ON"> <button class="button" onclick="laser_der_on()">-ON-</button></acronym></p> 
+                    <p> <acronym title="Laser_DER_OFF"> <button class="button" onclick="laser_der_off()">-OFF-</button></acronym></p>
+                    <p><button id="laser_der" class="btn-circle"></button></p>
+                </td>
+            </tr>
+          </table>
+    </section>
+
+    <section class="caja1">
+        <header>Bumper's</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <td><button id="bumpers_back" class="btn-circle"></button></td></td>
+                <td><p> <acronym title="bumpers_test"><button class="button" onclick="test_bumpers()">Test</button></acronym> </p></td>
+                <td><p> <acronym title="bumpres_reset"><button class="button" onclick="reset_bumpers()">Reset</button></acronym> </p></td>
+                <td> <td><button id="bumpers_front"class="btn-circle"></button></td></td>
+            </tr>
+          </table>
+    </section>
+
+    <section class="caja1">
+        <header>Sonido</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <acronym title="Ultrasonido"><button class="button" onclick="disparo_ultrasonido()">Pulso de disparo</button></acronym> </td>
+                <td><p>Prueba del <br> Ultrasonido</p></td>
+                <td> <table width="100" cellspacing="1" cellpadding="3" border="0" bgcolor="#165480">
+                    <tr>
+                       <td bgcolor="#85C1E9">
+                    <font size=1 face="verdana, arial, helvetica" COLOR="black">
+                    <b>Distancia en cm</b>
+                    </font>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffcc">
+                       <font face="verdana, arial, helvetica" size=1 COLOR="black">
+                        <p class="texto" id="valor_us_cm" value="000" > %valor_us_cm% </p>
+                       </font>
+                       </td>
+                    </tr>
+                    </table></td>
+            </tr>
+          </table>
+    </section>
+ 
+    <section class="caja1">
+        <header>GPS</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <acronym title="GPS"><button class="button" onclick="test_gps()">Test del GPS</button></acronym> </td>
+                <td><p>Prueba del <br> GPS</p></td>
+                <td> <table width="100" cellspacing="1" cellpadding="3" border="0" bgcolor="#165480">
+                    <tr>
+                       <td bgcolor="#85C1E9">
+                    <font size=1 face="verdana, arial, helvetica" COLOR="black">
+                    <b>Dato Rx</b>
+                    </font>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffcc">
+                       <font face="verdana, arial, helvetica" size=1 COLOR="black">
+                        <input type="text" name="valor_gps" id="valor_gps" value="000" size="8" >
+                       </font>
+                       </td>
+                    </tr>
+                    </table></td>
+            </tr>
+          </table>
+    </section>
+
+   
+    <p><button class="button_exit" onclick=location.href="index.html">Salir</button></p>
+
+
+    <script>
+        var red = "rgba(255, 4, 10, 1)";
+        var grey = "rgba(230, 230, 230, 1)";
+        var naranja="rgba(255, 128, 0)";
+        document.getElementById('valor_us_cm').innerHTML="000";
+
+        function laser_der_on(){
+            console.log("Laser_der_on");  
+            consultaGET("LASER_DER=ON");
+        }
+        
+        function laser_der_off(){
+            console.log("Laser_der_off");  
+            consultaGET("LASER_DER=OFF");
+        }
+
+        function laser_izq_on(){
+            console.log("Laser_izq_on");  
+            consultaGET("LASER_IZQ=ON");
+        }
+        
+        function laser_izq_off(){
+            console.log("Laser_izq_off");  
+            consultaGET("LASER_IZQ=OFF");
+        }
+
+        function disparo_ultrasonido(){
+            console.log("Pulso de disparo");  
+            consultaGET("DISP_ULTRAS");
+        }
+
+        function test_bumpers(){
+            console.log("Test Bumpers");  
+            consultaGET("TEST_BUMPERS");
+        }
+
+        function reset_bumpers(){
+            console.log("Reset Bumpers");  
+            bumpers_front.style.backgroundColor= grey; 
+            bumpers_back.style.backgroundColor= grey;  
+        }
+
+        function test_gps(){
+            console.log("Test del GPS");  
+            consultaGET("TEST_GPS");
+        }
+
+        function consultaGET(consulta){
+            const Http = new XMLHttpRequest();
+            console.log(`Consultando  ${consulta}`)
+            Http.open("GET", consulta);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+            console.log(Http.status );
+            //console.log(Http.statusText);
+            console.log(Http.getResponseHeader('content-length'));
+            //console.log(Http.getAllResponseHeaders());
+            //console.log(Http.responseType);
+            console.log("Dato_RX="+Http.response);
+                        
+            if(consulta=="TEST_BUMPERS"){
+                data=Http.response;
+                switch(data){
+                    case "0":
+                        bumpers_front.style.backgroundColor= grey; 
+                        bumpers_back.style.backgroundColor= grey; 
+                        break;
+                    case "1":
+                        bumpers_front.style.backgroundColor= red; 
+                        bumpers_back.style.backgroundColor= grey; 
+                        break;
+                    case "2":
+                        bumpers_front.style.backgroundColor= grey; 
+                        bumpers_back.style.backgroundColor= red; 
+                        break;
+                    case "3":
+                        bumpers_front.style.backgroundColor= red; 
+                        bumpers_back.style.backgroundColor= red; 
+                        break;
+                    default:
+                        bumpers_front.style.backgroundColor= naranja; 
+                        bumpers_back.style.backgroundColor= naranja; 
+                        break;
+                }
+            }
+            if(consulta=="LASER_IZQ=OFF"||consulta=="LASER_IZQ=ON" ){
+                data=Http.response;
+                switch(data){
+                    case "ON":
+                        laser_izq.style.backgroundColor=red;
+                        break;
+                    case "OFF":
+                        laser_izq.style.backgroundColor=grey;
+                        break;   
+                    default:
+                        laser_izq.style.backgroundColor= naranja; 
+                        break;                 
+                    }
+                }   
+            if(consulta=="LASER_DER=OFF"||consulta=="LASER_DER=ON" ){
+                data=Http.response;
+                switch(data){
+                    case "ON":
+                        laser_der.style.backgroundColor=red;
+                        break;
+                    case "OFF":
+                        laser_der.style.backgroundColor=grey;
+                        break;   
+                    default:
+                        laser_der.style.backgroundColor= naranja; 
+                        break;                 
+                    }
+                }     
+            if(consulta=="DISP_ULTRAS"){
+                if(Http.getResponseHeader('content-length')=="0"){
+                    document.getElementById('valor_us_cm').innerHTML="Sin Rx";
+                } 
+                else{
+                    document.getElementById('valor_us_cm').innerHTML=Http.response;
+                }
+            }
+            if(consulta=="TEST_GPS"){
+                document.valor_gps.value=Http.response;
+                }
+            //console(Http.responseText);
+            //console(Http.responseXML);
+
+            //console.log(Http.responseText);
+            //console.log(Http.response.laser_der_on);
+            //%LASER_DER%= Http.response.laser_der_on;
+            //document.getElementById('LASER_DER').innerHTML='ON';
+            //document.getElementById('LASER_DER').innerHTML= ;
+            }
+        }
+        </script> 
+
+</body>
+<footer>
+    <p class="pie_pag">CESE-FIUBA 2021</p>CESE-FIUBA 2021
+</footer>
+<!-- <datalist id="ON_OFF">
+    <option value="ON">
+    <option value="OFF">
+</datalist> -->
+
+</html>

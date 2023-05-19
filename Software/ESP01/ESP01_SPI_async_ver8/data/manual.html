@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Robot:_RL-Control Manual</title>
+</head>
+
+<body>
+    <h1 class="titulo">Robot:_RL-Control Manual</h1>
+
+    <section class="caja1">
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><input type="range" name="pwm0" id="pwm0" min="0" max="255" step="10" value="128"  oninput="amount0.value=pwm0.value" onclick="setearPwm0(pwm0.value)">
+                    <p><label class="celeste" for="pwm0">PWM_0 = </label>
+                    <output class="celeste"  id="amount0" name="amount0" for="pwm0"></output></p></td>
+                <td></td>
+                <td>Maneje los motores en forma manual
+                    <!--<p> <acronym title="Setear velocidad"><button class="button_red" onclick=location.href="/STOP" onclick="pwm1.value=pwm0.value=amount1.value=amount0.value=128">STOP</button></acronym></p>-->
+                    <p> <acronym title="Setear velocidad"><button class="button_red" onclick="setearStop()">STOP</button></acronym></p>
+                </td>
+                <td></td>
+                <td><input type="range" name="pwm1" id="pwm1" min="0" max="255" step="10" value="128"  oninput="amount1.value=pwm1.value" onclick="setearPwm1(pwm1.value)">
+                    <p><label class="celeste" for="pwm1">PWM_1 = </label>
+                    <output class="celeste"  id="amount1" name="amount1" for="pwm1"></output></p></td>
+            </tr>
+            <tr>
+                <td><p class="texto" id="pwm_0" value="000" > %pwm_0% </p></td>
+                <td></td>
+                <td>Valores recibidos del Robot_RL</td>
+                <td></td>
+                <td><p class="texto" id="pwm_1" value="000" > %pwm_1% </p></td>
+              </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+          </table>
+ 
+    </section>
+
+    <script>
+        document.getElementById('pwm_0').innerHTML="000";
+        document.getElementById('pwm_1').innerHTML="000";
+
+        function setearPwm0(valor){
+            console.log("Seteo PWM_0");  
+            consultaGET("PWM_0?PWM_0="+valor);
+        }
+
+        function setearPwm1(valor){
+            console.log("Seteo PWM_1");
+            consultaGET("PWM_1?PWM_1="+valor);
+        }
+
+        function setearStop(){
+            pwm1.value=pwm0.value=amount1.value=amount0.value=128;
+            console.log("STOP");
+            consultaGET("STOP");
+        }
+
+        function compara( data1, data2, numero){
+            var flag_c = true;
+            var i=0;
+            for (i = 0; i < numero; i++){
+            if (data1[i] != data2[i]){
+                flag_c = false;
+                break;
+                }           
+            }
+            return flag_c;
+        }
+
+        function consultaGET(consulta){
+            const Http = new XMLHttpRequest();
+            console.log(`Consultando  ${consulta}`)
+            Http.open("GET", consulta);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+            console.log(Http.status );
+            //console.log(Http.responseText);
+            console.log(Http.getResponseHeader('content-length'));
+            console.log("Dato_RX="+Http.response);
+            
+            if(consulta=="STOP"){
+                document.getElementById('pwm_0').innerHTML="000";
+                document.getElementById('pwm_1').innerHTML="000";
+            }
+
+            if(compara(consulta, "PWM_0", 5)){
+                document.getElementById('pwm_0').innerHTML=Http.response;
+            }
+
+            if(compara(consulta, "PWM_1", 5)){
+                document.getElementById('pwm_1').innerHTML=Http.response;
+            }
+
+            }
+        }
+    </script> 
+    
+    <p><button class="button_exit" onclick=location.href="index.html">Salir</button></p>
+</body>
+
+<footer>
+    <p class="pie_pag">CESE-FIUBA 2021</p>CESE-FIUBA 2021
+</footer>
+
+<datalist id="ON_OFF">
+    <option value="ON">
+    <option value="OFF">
+</datalist>
+</html>

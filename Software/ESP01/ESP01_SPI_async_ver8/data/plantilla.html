@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Robot:_RL-Plantilla</title>
+</head>
+
+<body>
+    <h1 class="titulo">Robot:_RL-Plantilla</h1>
+
+    <section class="caja1">
+        <p class="celeste"> Lista--> <input class="casilla1" list="ON_OFF" name="PWM_ENA"></label></p>
+
+        <p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></p>
+  
+    </section>
+
+    <section class="caja1">
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+            </tr>
+            <tr>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+              <td><p class="celeste"> Valor--> <input class="casilla" type="text" value="tipear"></td>
+            </tr>
+          </table>
+    </section>     
+    <section class="caja1">
+        <input type="range" name="pwm" id="pwm" min="0" max="255" step="10" value="128"  oninput="amount.value=pwm.value">
+        <label class="celeste" for="pwm">PWM_0 = </label>
+        <output class="celeste"  id="amount" name="amount" for="pwm"></output>
+    </section>
+    
+    <p><button class="button_exit" onclick=location.href="index.html">Salir</button></p>
+</body>
+<footer>
+    <p class="pie_pag">CESE-FIUBA 2021</p>CESE-FIUBA 2021
+</footer>
+<datalist id="ON_OFF">
+    <option value="ON">
+    <option value="OFF">
+</datalist>
+
+</html>
