@@ -1,0 +1,362 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Robot:_RL-Sensores</title>
+</head>
+
+<body>
+    <h1 class="titulo">Robot:_RL-Sensores</h1>
+
+    <section class="caja1">
+        <header>Laser</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <th> Izquierdo </th>
+                <td><p>...</p></td>
+                <td> Derecho </td>
+            </tr>
+            <tr>
+                <td>
+                    <p> <acronym title="Laser_IZQ_ON"> <button class="button" onclick="laser_izq_on()">-ON-</button></acronym></p> 
+                    <p> <acronym title="Laser_IZQ_OFF"> <button class="button" onclick="laser_izq_off()">-OFF-</button></acronym></p>
+                    <p><button id="laser_izq" class="btn-circle"></button></p>
+                </td>
+                <td><p></p></td>
+                <td> 
+                    <p> <acronym title="Laser_DER_ON"> <button class="button" onclick="laser_der_on()">-ON-</button></acronym></p> 
+                    <p> <acronym title="Laser_DER_OFF"> <button class="button" onclick="laser_der_off()">-OFF-</button></acronym></p>
+                    <p><button id="laser_der" class="btn-circle"></button></p>
+                </td>
+            </tr>
+          </table>
+    </section>
+
+    <section class="caja1">
+        <header>Bumper's</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <td><button id="bumpers_back" class="btn-circle"></button></td></td>
+                <td><p> <acronym title="bumpers_test"><button class="button" onclick="test_bumpers()">Test</button></acronym> </p></td>
+                <td><p> <acronym title="bumpres_reset"><button class="button" onclick="reset_bumpers()">Reset</button></acronym> </p></td>
+                <td> <td><button id="bumpers_front"class="btn-circle"></button></td></td>
+            </tr>
+          </table>
+    </section>
+
+    <section class="caja1">
+        <header>Sonido</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <acronym title="Ultrasonido"><button class="button" onclick="disparo_ultrasonido()">Pulso de disparo</button></acronym> </td>
+                <td><p>Prueba del <br> Ultrasonido</p></td>
+                <td> <table width="100" cellspacing="1" cellpadding="3" border="0" bgcolor="#165480">
+                    <tr>
+                       <td bgcolor="#85C1E9">
+                    <font size=1 face="verdana, arial, helvetica" COLOR="black">
+                    <b>Distancia en cm</b>
+                    </font>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffcc">
+                       <font face="verdana, arial, helvetica" size=1 COLOR="black">
+                        <p class="texto" id="valor_us_cm" value="000" > %valor_us_cm% </p>
+                       </font>
+                       </td>
+                    </tr>
+                    </table></td>
+            </tr>
+          </table>
+    </section>
+ 
+    <section class="caja1">
+        <header>GPS</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td> <acronym title="GPS"><button class="button" onclick="test_gps()">Test del GPS</button></acronym> </td>
+                <td><p>Prueba del <br> GPS</p></td>
+                <td> <table width="100" cellspacing="1" cellpadding="3" border="0" bgcolor="#165480">
+                    <tr>
+                       <td bgcolor="#85C1E9">
+                    <font size=1 face="verdana, arial, helvetica" COLOR="black">
+                    <b>Dato Rx</b>
+                    </font>
+                       </td>
+                    </tr>
+                    <tr>
+                        <td bgcolor="#ffffcc">
+                       <font face="verdana, arial, helvetica" size=1 COLOR="black">
+                        <input type="text" name="valor_gps" id="valor_gps" value="T-B-D" size="8" >
+                       </font>
+                       </td>
+                    </tr>
+                    </table></td>
+            </tr>
+          </table>
+    </section>
+
+    <section class="caja1">
+        <header>Módulo MPU 9250</header>
+        <table class="tabla_prop" frame="border" align="center";>
+            <tr>
+                <td><p > </p></td>
+                <td><p class="celeste">Giróscopo</p><p>[rad]</p></td>
+                <td><p class="celeste">Magnetómetro</p><p>[uT]</p></td>
+                <td><p class="celeste">Acelerómetro</p><p>[m.seg2]</p></td>
+                <td><p> <acronym title="RUN"> <button class="button" onclick="test_mpu9250()">RUN</button></acronym></p></td>
+              </tr>
+            <tr>
+              <td><p >X </p></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_gyro_x" value="000000" > %valor_gyro_x% </p></font></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_mag_x" value="000000" > %valor_mag_x% </p></font></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_acc_x" value="000000" > %valor_acc_x% </p></font></td>
+              <td><p> <acronym title="RESET"> <button class="button" onclick="reset_mpu9250()">RESET</button></acronym></p> </td>
+            </tr>
+            <tr>
+              <td><p >Y </p></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_gyro_y" value="000000" > %valor_gyro_y% </p></font></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_mag_y" value="000000" > %valor_mag_y% </p></font></td>
+              <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_acc_y" value="000000" > %valor_acc_y% </p></font></td>
+              <td><p class="celeste">Temperatura</p><p>[ºC]</p></td>
+            </tr>
+            <tr>
+                <td><p >Z </p></td>
+                <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_gyro_z" value="000000" > %valor_gyro_z% </p></font></td>
+                <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_mag_z" value="000000" > %valor_mag_z% </p></font></td>
+                <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_acc_z" value="000000" > %valor_acc_z% </p></font></td>
+                <td bgcolor="#ffffcc"> <font face="verdana, arial, helvetica" size=1 COLOR="black"><p class="texto" id="valor_temp" value="000000" > %valor_temp% </p></font></td>
+              </tr>
+          </table>
+    </section> 
+
+    <script>
+        var red = "rgba(255, 4, 10, 1)";
+        var grey = "rgba(230, 230, 230, 1)";
+        var naranja="rgba(255, 128, 0)";
+        var verde="rgba( 127, 255, 0, 1 )";
+        var buffer;
+
+        function laser_der_on(){
+            console.log("Laser_der_on");  
+            consultaGET("LASER_DER=ON");
+        }
+    
+        function laser_der_off(){
+            console.log("Laser_der_off");  
+            consultaGET("LASER_DER=OFF");
+        }
+
+        function laser_izq_on(){
+            console.log("Laser_izq_on");  
+            consultaGET("LASER_IZQ=ON");
+        }
+    
+        function laser_izq_off(){
+            console.log("Laser_izq_off");  
+            consultaGET("LASER_IZQ=OFF");
+        }
+
+        function disparo_ultrasonido(){
+            console.log("Pulso de disparo");  
+            consultaGET("DISP_ULTRAS");
+        }
+
+        function test_bumpers(){
+            console.log("Test Bumpers");  
+            consultaGET("TEST_BUMPERS");
+        }
+
+        function reset_bumpers(){
+            console.log("Reset Bumpers");  
+            bumpers_front.style.backgroundColor= grey; 
+            bumpers_back.style.backgroundColor= grey;  
+        }
+
+        function test_gps(){
+            console.log("Test del GPS");  
+            consultaGET("TEST_GPS");
+        }
+
+        function test_mpu9250(){
+            console.log("Test del mpu9250");  
+            consultaGET("TEST_MPU9250");
+        }
+
+        function reset_mpu9250(){
+            console.log("Reset del mpu9250");  
+            document.getElementById('valor_gyro_x').innerHTML="000000";
+            document.getElementById('valor_gyro_y').innerHTML="000000";
+            document.getElementById('valor_gyro_z').innerHTML="000000";
+            document.getElementById('valor_mag_x').innerHTML="000000";
+            document.getElementById('valor_mag_y').innerHTML="000000";
+            document.getElementById('valor_mag_z').innerHTML="000000";
+            document.getElementById('valor_acc_x').innerHTML="000000";
+            document.getElementById('valor_acc_y').innerHTML="000000";
+            document.getElementById('valor_acc_z').innerHTML="000000";
+            document.getElementById('valor_temp').innerHTML="000000";
+        }
+
+        function valor_mpu(buffer_data,buffer, inicial, final){
+            console.log("Dato de entrada"+buffer_data);
+            console.log("Inicial="+inicial);
+            console.log("final="+final);
+            for(var c=inicial;c<=final; c++){
+                console.log("buffer["+c+"]="+buffer[c]);
+                buffer[c-inicial]=buffer_data[c];
+            }
+            c++;
+            buffer[c]="\0";
+            console.log("Dato de salida="+buffer);
+        }
+
+        function consultaGET(consulta){
+            var flag_rx=0;              // Flag para sensar espera
+            const Http = new XMLHttpRequest();
+            console.log(`Consultando  ${consulta}`)
+            Http.open("GET", consulta);
+            Http.send();
+            // Se debe enviar 2 veces es por cómo está hecho
+            // el servidor WEB del ESP01 200ms
+            setTimeout(() => {
+                console.log("Esperado 200mseg");
+                Http.open("GET", consulta);
+                Http.send();
+                flag_rx=1;              // Indico que pasaron los 200mseg
+                }, 200);
+
+
+            Http.onreadystatechange = (e) => {
+                var status_rx=Http.status;
+                var length_rx=Http.getResponseHeader('content-length');
+                var data_rx=Http.response;
+                if(status_rx!="0" && length_rx!="0" && length_rx!="null"&& flag_rx!=0){
+                    console.log("Status="+status_rx);
+                    //console.log(Http.responseText);
+                    console.log("Longitud="+length_rx);
+                    console.log("Dato_RX="+data_rx);
+
+                    if(consulta=="TEST_BUMPERS"){
+                            data=Http.response;
+                            switch(data){
+                                case "0":
+                                    bumpers_front.style.backgroundColor= grey; 
+                                    bumpers_back.style.backgroundColor= grey; 
+                                    break;
+                                case "1":
+                                    bumpers_front.style.backgroundColor= red; 
+                                    bumpers_back.style.backgroundColor= grey; 
+                                    break;
+                                case "2":
+                                    bumpers_front.style.backgroundColor= grey; 
+                                    bumpers_back.style.backgroundColor= red; 
+                                    break;
+                                case "3":
+                                    bumpers_front.style.backgroundColor= red; 
+                                    bumpers_back.style.backgroundColor= red; 
+                                    break;
+                                default:
+                                    bumpers_front.style.backgroundColor= naranja; 
+                                    bumpers_back.style.backgroundColor= naranja; 
+                                    break;
+                            }
+                    }
+
+                    if(consulta=="LASER_IZQ=OFF"||consulta=="LASER_IZQ=ON" ){
+                        data=Http.response;
+                        switch(data){
+                            case "ON":
+                                laser_izq.style.backgroundColor=red;
+                                break;
+                            case "OFF":
+                                laser_izq.style.backgroundColor=grey;
+                                break;   
+                            default:
+                                laser_izq.style.backgroundColor= naranja; 
+                                break;                 
+                        }
+                    }   
+
+                    if(consulta=="LASER_DER=OFF"||consulta=="LASER_DER=ON" ){
+                        data=Http.response;
+                        switch(data){
+                            case "ON":
+                                laser_der.style.backgroundColor=red;
+                                break;
+                            case "OFF":
+                                laser_der.style.backgroundColor=grey;
+                                break;   
+                        default:
+                                laser_der.style.backgroundColor= naranja; 
+                                break;                 
+                        }
+                    }     
+
+                    if(consulta=="DISP_ULTRAS"){
+                        if(Http.getResponseHeader('content-length')=="0"){
+                            document.getElementById('valor_us_cm').innerHTML="Sin Rx";
+                            } 
+                        else{
+                            document.getElementById('valor_us_cm').innerHTML=Http.response;
+                        }
+                    }
+
+                    if(consulta=="TEST_GPS"){
+                        document.valor_gps.value=Http.response;
+                    }
+
+                    if(consulta=="TEST_MPU9250"){
+                        console.log("TEST_MPU9250");
+                        if(Http.getResponseHeader('content-length')=="0"){
+                            console.log("True");
+                            document.getElementById('valor_gyro_x').innerHTML="ERROR";
+                            document.getElementById('valor_gyro_y').innerHTML="ERROR";
+                            document.getElementById('valor_gyro_z').innerHTML="ERROR";
+                            document.getElementById('valor_mag_x').innerHTML="ERROR";
+                            document.getElementById('valor_mag_y').innerHTML="ERROR";
+                            document.getElementById('valor_mag_z').innerHTML="ERROR";
+                            document.getElementById('valor_acc_x').innerHTML="ERROR";
+                            document.getElementById('valor_acc_y').innerHTML="ERROR";
+                            document.getElementById('valor_acc_z').innerHTML="ERROR";
+                            document.getElementById('valor_temp').innerHTML="ERROR";
+                            }    
+                        else{
+                            console.log("Else");
+                            //***********************************************
+		                    // El formato que devuelve es:
+		                    //    TEST_MPU9250=XXXXXX_YYYYYY_ZZZZZZ=
+		                    //				   XXXXXX_YYYYYY_ZZZZZZ=
+		                    //		           XXXXXX_YYYYYY_ZZZZZZ=TTTTTT
+		                    // El primer grupo de XYZ es para el giróscopo,
+		                    // el segundo grupo para el acelerómetro,
+		                    // el tercero para el magnetómetro, y las T
+		                    // es para la temperatura.);
+                            document.getElementById('valor_gyro_x').innerHTML=Http.response.slice(0,6);
+                            document.getElementById('valor_gyro_y').innerHTML=Http.response.slice(7,13);
+                            document.getElementById('valor_gyro_z').innerHTML=Http.response.slice(14,20);
+                            document.getElementById('valor_mag_x').innerHTML=Http.response.slice(21,27);
+                            document.getElementById('valor_mag_y').innerHTML=Http.response.slice(28,34);
+                            document.getElementById('valor_mag_z').innerHTML=Http.response.slice(35,41);
+                            document.getElementById('valor_acc_x').innerHTML=Http.response.slice(42,48);
+                            document.getElementById('valor_acc_y').innerHTML=Http.response.slice(49,55);
+                            document.getElementById('valor_acc_z').innerHTML=Http.response.slice(58,62);
+                            document.getElementById('valor_temp').innerHTML=Http.response.slice(63,68);
+                        }
+                    }
+                }
+        }
+
+    }
+
+    </script>
+   
+    <p><button class="button_exit" onclick=location.href="index.html">Salir</button></p>
+</body>
+
+<footer>
+    <p class="pie_pag">CESE-FIUBA 2021</p>CESE-FIUBA 2021
+</footer>
+
+</html>

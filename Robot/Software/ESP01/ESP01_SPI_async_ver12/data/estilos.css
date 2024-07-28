@@ -1,0 +1,145 @@
+body{
+    background-color: rgb(11, 1, 20);
+}
+.titulo{
+    text-align: center;
+    color: rgb(210, 207, 30);
+}
+.caja{
+    padding: 1px;
+    background-color: rgb(31, 95, 3);
+    width: 200px;
+    height: 350px;
+    min-height: 5px;
+    text-align: center;
+    border:rgba(48, 2, 94, 0.945) b 20px solid;
+    border-radius: 5px;
+    margin:auto;
+}
+.caja1{
+    padding: 1px;
+    background-color: rgb(31, 95, 3);
+    width:75% content-box;
+    height: 75% content-box;
+    min-height: 5px;
+    text-align: center;
+    border:rgba(48, 2, 94, 0.945) b 20px solid;
+    border-radius: 5px;
+    margin:auto;
+    color: aliceblue;
+}
+
+.caja2{
+    padding: 1px;
+    background-color: rgb(14, 15, 13);
+    width:75% content-box;
+    height: 75% content-box;
+    min-height: 5px;
+    text-align: center;
+    border:rgba(48, 2, 94, 0.945) b 20px solid;
+    border-radius: 5px;
+    margin:auto;
+}
+
+.button{
+    border: white 4px outset;
+    width: 100px;
+    height: 40px;
+}
+.button_red {
+    background-color: rgb(209, 82, 73);
+    color: white;
+    width: 200px;
+    height: 50px;
+    border-radius: 8px;
+    font-family: fantasy;
+    font-size: 30px;
+    transition-duration: 0.4s;
+  }
+
+.button_exit{
+    /* !display: inline-block; */ 
+    border: white 4px outset;
+    float:right;
+    position:relative;
+    bottom:1px; right: 1px;
+    width: 100px;
+    height: 40px;
+}
+
+.button:hover {
+    background-color: #d63232;
+    color: white;
+  }
+
+.button_exit:hover {
+    background-color: #d63232;
+    color: white;
+  }
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+    background-color:gray;
+  }
+  
+.texto1{
+    text-align: center;
+    color: rgb(30, 210, 180); 
+}
+.casilla{
+    width: 45px;
+    height: 20px;
+    align-self: center;
+}
+.casilla_long{
+    width: 100px;
+    height: 20px;
+    align-items: right;
+    justify-content: right;
+    align-self: right;
+}
+
+.casilla_1{
+    width: 60px;
+    height: 20px;
+    align-items: left;
+    justify-content: left;
+    align-self: left;
+}
+
+.casilla1{
+    width: 45px;
+    height: 20px;
+}
+.pie_pag{
+    text-align: center;
+    color: rgb(236, 245, 243); 
+}
+.celeste{
+    color:darkturquoise;
+}
+.tabla_prop{
+    width:75% content-box;
+    height: 75% content-box;
+    color: darkturquoise;
+    border-style:dashed;
+    text-align: center;
+ }
+table,
+td {
+    border: 1px solid #333;
+}
+input[type="range"] {
+    writing-mode: bt-lr;
+    -webkit-appearance: slider-vertical;
+}
+
+.upload-file>input {
+    display: none;
+}

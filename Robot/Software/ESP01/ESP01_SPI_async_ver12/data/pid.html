@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Robot:_RL-Controlador PID</title>
+</head>
+
+<body>
+  <h1 class="titulo">Robot: Controlador PID</h1>
+    
+  <section class="caja1">
+    <header>Controlador PID</header>
+    <table class="tabla_prop" frame="border" align="center">
+      <tr>
+        <td><p><button class="button" onclick="get_pid()">Leer del RL</button></p></td>
+        <td><p><button class="button" onclick="send_pid()">Escribir en el RL</button></p></td>
+      </tr>
+      <tr>
+        <td><p><button class="button" onclick="check_pid()">Chequear Const. PID</button></p></td>
+        <td><p><button id="check_data" class="btn-circle"></button> </p></td>
+      </tr>      
+
+      <table class="tabla_prop" frame="border" align="center">
+        <tr>
+          <td><p class="celeste">Constante</p></td>
+          <td><p class="celeste">Derecho</p></td>
+          <td><p class="celeste">Izquierdo</p></td>
+        </tr>
+        <tr>
+          <td><p class="celeste">kp</p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_kp1"></p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_kp2"></p></td>
+        </tr>
+        <tr>
+          <td><p class="celeste">ki</p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_ki1"></p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_ki2"></p></td>
+        </tr>
+        <tr>
+          <td><p class="celeste">kd</p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_kd1"></p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_kd2"></p></td>
+        </tr>
+        <tr>
+          <td><p class="celeste">N</p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_N1"></p></td>
+          <td><p class="celeste"> <input class="casilla" type="number" value="000" id="valor_N2"></p></td>
+        </tr>
+      </table>
+      <table class="tabla_prop" frame="border" align="center">
+        <tr>
+          <td><p><button class="button" onclick="file_write()">Escribir en el Archivo</button></p></td>   
+          <td> <p class="celeste">El archivo que se lee y se escribe son distintos. <br>
+                                  El archivo que se escribe se llama pid(x).json</p></td>
+        </tr>
+      </table>
+      <table class="tabla_prop" frame="border" align="center">
+        <tr>
+          <td><p>
+                <input type="file" id="file-input" accept="Json/json, Texto/txt" style='display:none;'>
+                <button class="button"  id="button-input" onclick="fileInput.click();">Seleccionar archivo</button>
+                </div>
+          </td>
+          <td>--------------&#8669;</td>
+          <td><p><button class="button"  id="read-button" >Leer del Archivo</button></p></td>
+        </tr>
+        <tr>  
+          <td><p class="texto" value="Nombre">Nombre</p></td>
+          <td><p class="texto" value="Tipo">Tipo</p></td>
+          <td><p class="texto" value="Tamaño">Tamaño</p></td>
+        </tr>
+        <tr>  
+          <td><p><input class="casilla_long" type="text" value=" " id="valor_file_name"></p></td>
+          <td><p><input class="casilla_long" type="text" value=" " id="valor_file_type"></p></td>
+          <td><p><input class="casilla_long" type="text" value=" " id="valor_file_size"></p></td>
+        </tr>
+      </table>  
+      <table class="tabla_prop" frame="border" align="center">
+          <tr>
+            <td><p></p></td>
+            <td><p>Valor PWM<br> [0-510]</p> </td>   
+            <td><p>Tiempo<br>[seg]</p></td>   
+          </tr>
+          <tr>
+            <td><p><button class="button" onclick="probar_pwm()">Probar</button></p></td>
+            <td><p><input class="casilla" type="number" value=000 id="valor_pwm"></p></td>   
+            <td><p><input class="casilla" type="number" value=000 id="valor_time"></p></td>   
+          </tr>
+      </table>
+       
+    </section> 
+    <section class="caja1">
+      <header>Lectura de la sumatoria del acelerómetro</header>
+      <table class="tabla_prop" frame="border" align="center";>
+        <tr>
+          <td><p><button class="button" onclick="leer_prueba_pwm()">Leer Sumatoria</button></p></td>
+          <td><p>ax</p></td>   
+          <td><p>ay</p></td>   
+          <td><p>az</p></td> 
+        </tr>
+        <tr>
+          <td><p>Acelerómetro</p></td>
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_acc_x"></p></td>   
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_acc_y"></p></td>   
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_acc_z"></p></td>
+        </tr>
+        <tr>
+          <td><p>Giróscopo</p></td>
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_giro_x"></p></td>   
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_giro_y"></p></td>   
+          <td><p><input class="casilla_1" type="number" value=000000 id="valor_s_giro_z"></p></td>
+        </tr>
+      </table>
+    </section>   
+ 
+    <script>
+      var red = "rgba(255, 4, 10, 1)";
+      var grey = "rgba(230, 230, 230, 1)";
+      var naranja="rgba(255, 128, 0)";
+      var verde="rgba( 127, 255, 0, 1 )";
+
+    //************************  Leo Archivo ************************************************
+    // Info --> https://usefulangle.com/post/193/javascript-read-local-file
+    //      --> https://betterprogramming.pub/handling-file-inputs-with-javascript-9f2d3a007f05
+
+    const fileInput = document.getElementById('file-input');
+    const buttonInput = document.getElementById('button-input');
+
+
+    buttonInput.onclick = () => {
+      fileInput.click();
+    }
+    
+    fileInput.onchange = () => {
+      const selectedFiles = [...fileInput.files];
+      console.log(selectedFiles);
+    }
+
+    document.querySelector("#read-button").addEventListener('click', function() {
+      // Si la longitud es cero no se puede abrir
+      if(document.querySelector("#file-input").files.length == 0) {
+	  	  alert('Error : No file selected');
+		    return;
+	    } 
+      // Archivo selecionado por el usuario
+      let file = document.querySelector("#file-input").files[0];
+		  // Nombre del archivo
+      let file_name = file.name;
+      document.getElementById('valor_file_name').value=file_name;
+      console.log("Archivo="+file_name);
+      // Tipo de Archivo
+      let file_type = file.type;
+      document.getElementById('valor_file_type').value=file_type;
+      console.log("Tipo de archivo="+file_type);
+      // Longitud de Archivo
+      let file_size = file.size;
+      document.getElementById('valor_file_size').value=file_size;
+      console.log("Tamaño de archivo="+file_size);
+      // Leo el archivo
+      let reader = new FileReader();
+      // Cuando finaliza la tectura del archivo
+		  reader.addEventListener('load', function(e) {
+        // Recupero el cotenido del archivo
+  		  let text = e.target.result;
+        let data = JSON.parse(text);
+        console.log('string', text);
+        console.log('json', data);
+        // Muestro los valores en la página WEB
+        document.getElementById("valor_kp1").value=data.kp_1;
+        document.getElementById("valor_kp2").value=data.kp_2;
+        document.getElementById("valor_ki1").value=data.ki_1;
+        document.getElementById("valor_N1").value=data.N_1;
+        document.getElementById("valor_ki2").value=data.ki_2;
+        document.getElementById("valor_kd1").value=data.kd_1;
+        document.getElementById("valor_kd2").value=data.kd_2;
+        document.getElementById("valor_N2").value=data.N_2;
+		  });
+
+   	  // Cuando falla la lectura del archivo
+	    reader.addEventListener('error', function() {
+	      alert('Error : Failed to read file');
+	    });
+
+		  reader.readAsText(file);
+	  })
+    //****************************************************************************************
+
+    //******************************  Escribo archivo ****************************************
+    function file_write(valor){
+      var mensaje={};
+      mensaje.kp_1=document.getElementById("valor_kp1").value;
+      mensaje.ki_1=document.getElementById("valor_ki1").value;
+      mensaje.kd_1=document.getElementById("valor_kd1").value;
+      mensaje.N_1=document.getElementById("valor_N1").value;
+      mensaje.kp_2=document.getElementById("valor_kp2").value;
+      mensaje.ki_2=document.getElementById("valor_ki2").value;
+      mensaje.kd_2=document.getElementById("valor_kd2").value;
+      mensaje.N_2=document.getElementById("valor_N2").value;
+      download('pid.json', JSON.stringify(mensaje));
+    }
+
+    function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+    if (document.createEvent) {
+      var event = document.createEvent('MouseEvents');
+      event.initEvent('click', true, true);
+      pom.dispatchEvent(event);
+      }
+      else {
+        pom.click();
+      }
+    }
+    //****************************************************************************************
+
+    function get_pid(){
+      console.log("Get PID");  
+      consultaGET("GET_PID");
+    }
+
+    function check_pid(){
+      console.log("Chequeo de PID");  
+      consultaGET("CHECK_PID");
+    }
+
+    function send_pid(){
+      console.log("Send PID");  
+      mensaje="kp_1="+document.getElementById("valor_kp1").value+"&"+
+              "ki_1="+document.getElementById("valor_ki1").value+"&"+
+              "kd_1="+document.getElementById("valor_kd1").value+"&"+
+              "N_1="+document.getElementById("valor_N1").value+"&"+
+              "kp_2="+document.getElementById("valor_kp2").value+"&"+
+              "ki_2="+document.getElementById("valor_ki2").value+"&"+
+              "kd_2="+document.getElementById("valor_kd2").value+"&"+
+              "N_2="+document.getElementById("valor_N2").value;        
+      consultaGET("SEND_PID?"+mensaje);
+    }
+
+    function verificar(Http){
+      var ok=0;
+      if(document.getElementById("valor_kp1").value!=parseFloat(Http.response.slice(5,9))) ok=1;
+      if(document.getElementById("valor_ki1").value!=parseFloat(Http.response.slice(15,19))) ok=1;
+      if(document.getElementById("valor_kd1").value!=parseFloat(Http.response.slice(25,29))) ok=1;
+      if(document.getElementById("valor_N1").value!=parseFloat(Http.response.slice(34,38))) ok=1;
+      if(document.getElementById("valor_kp2").value!=parseFloat(Http.response.slice(44,48))) ok=1;
+      if(document.getElementById("valor_ki2").value!=parseFloat(Http.response.slice(54,58))) ok=1;
+      if(document.getElementById("valor_kd2").value!=parseFloat(Http.response.slice(64,68))) ok=1;
+      if(document.getElementById("valor_N2").value!=parseFloat(Http.response.slice(73,77))) ok=1;
+
+      return ok;
+    }
+
+    //******************************  Prueba PWM *********************************************
+    function probar_pwm(){
+      console.log("Pruebo PWM"); 
+      mensaje="PWM="+document.getElementById("valor_pwm").value+"&"+
+              "TIME="+document.getElementById("valor_time").value;        
+      consultaGET("PROBAR_PWM?"+mensaje);
+
+    }
+
+    //***************************** Leer prueba PWM *******************************************
+    function leer_prueba_pwm(){
+      console.log("Leer prueba de PWM"); 
+      consultaGET("LEER_PRUEBA");
+
+    } 
+    
+
+    function consultaGET(consulta){
+      var flag_rx=0;              // Flag para sensar espera
+      const Http = new XMLHttpRequest();
+      console.log(`Consultando  ${consulta}`)
+      Http.open("GET", consulta);
+      Http.send();
+      // Se debe enviar 2 veces es por cómo está hecho
+      // el servidor WEB del ESP01 200ms
+      setTimeout(() => {
+        console.log("Esperado 200mseg");
+        Http.open("GET", consulta);
+        Http.send();
+        flag_rx=1;              // Indico que pasaron los 200mseg
+        }, 200);
+
+
+        Http.onreadystatechange = (e) => {
+          var status_rx=Http.status;
+          var length_rx=Http.getResponseHeader('content-length');
+          var data_rx=Http.response;
+          if(status_rx!="0" && length_rx!="0" && length_rx!="null"&& flag_rx!=0){
+            console.log("Status="+status_rx);
+            //console.log(Http.responseText);
+            console.log("Longitud="+length_rx);
+            console.log("Dato_RX="+data_rx);
+
+
+          // Consulto si es SEND_PID
+          if(consulta[0]=="S"){
+            if(verificar(Http)==0){
+              check_data.style.backgroundColor= verde;
+              }
+              else{
+              check_data.style.backgroundColor= red;
+            }
+          }
+            
+          if(consulta=="GET_PID"){
+            document.getElementById("valor_kp1").value=parseFloat(Http.response.slice(5,9));
+            document.getElementById("valor_ki1").value=parseFloat(Http.response.slice(15,19));
+            document.getElementById("valor_kd1").value=parseFloat(Http.response.slice(25,29));
+            document.getElementById("valor_N1").value=parseFloat(Http.response.slice(34,38));
+            document.getElementById("valor_kp2").value=parseFloat(Http.response.slice(44,48));
+            document.getElementById("valor_ki2").value=parseFloat(Http.response.slice(54,58));
+            document.getElementById("valor_kd2").value=parseFloat(Http.response.slice(64,68));
+            document.getElementById("valor_N2").value=parseFloat(Http.response.slice(73,77));
+          }
+
+          if(consulta=="CHECK_PID"){
+            if(verificar(Http)==0){
+              check_data.style.backgroundColor= verde;
+              }
+              else{
+              check_data.style.backgroundColor= red;
+            }
+          }
+
+          if(consulta=="LEER_PRUEBA"){
+            if(Http.getResponseHeader('content-length')=="47"){
+                console.log("True");
+                //***********************************************
+		            // El formato que devuelve es:
+		            //    LEER_PRUEBA=XXXXXX_YYYYYY_ZZZZZZ=
+                //                XXXXXX_YYYYYY_ZZZZZZ
+		            // El primer grupo de XYZ es la sumatoria del acelerómetro,
+		            // el segundo grupo de XYZ es la sumatoria del giróscopo.
+                document.getElementById('valor_s_acc_x').value=Http.response.slice(0,7);
+                document.getElementById('valor_s_acc_y').value=Http.response.slice(8,15);
+                document.getElementById('valor_s_acc_z').value=Http.response.slice(16,23);
+                document.getElementById('valor_s_giro_x').value=Http.response.slice(24,31);
+                document.getElementById('valor_s_giro_y').value=Http.response.slice(32,39);
+                document.getElementById('valor_s_giro_z').value=Http.response.slice(40,47);
+                } 
+              else{
+                console.log("Else");
+                document.getElementById('valor_s_acc_x').value=0;
+                document.getElementById('valor_s_acc_y').value=0;
+                document.getElementById('valor_s_acc_z').value=0;
+                document.getElementById('valor_s_giro_x').value=0;
+                document.getElementById('valor_s_giro_y').value=0;
+                document.getElementById('valor_s_giro_z').value=0;
+              }
+            }
+
+          // Consulto si es PROBAR_PWM
+          if(consulta[0]=="P"){
+            console.log("Se mandó prueba de PWM");
+            }
+
+          }
+        }
+      }
+    </script>
+
+  <p><button class="button_exit" onclick=location.href="index.html">Salir</button></p>
+
+</body>
+
+<footer>
+  <p class="pie_pag">CESE-FIUBA 2021</p>CESE-FIUBA 2021
+</footer>
+
+</html>
